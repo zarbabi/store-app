@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import GroupList from "./component/GroupList";
 import NewGroup from "./component/NewGroup";
+import SelectGroup from "./component/SelectGroup";
 
 function App() {
   const [newGroup, setNewGroup] = useState("");
@@ -9,7 +9,7 @@ function App() {
     { groupName: "Mobile", id: 1 },
     { groupName: "Computer", id: 2 },
   ]);
-
+  const [selectGroup, setSelectGroup] = useState("");
   // useEffect(() => {}, allGroups);
   const changeNewGroupHandler = (e) => {
     setNewGroup({
@@ -32,7 +32,7 @@ function App() {
         submitNewGroup={submitNewGroupHandler}
         changeNewGroup={changeNewGroupHandler}
       />
-      <GroupList allGroups={allGroups} />
+      <SelectGroup allGroups={allGroups} setSelectGroup={setSelectGroup} />
     </div>
   );
 }
