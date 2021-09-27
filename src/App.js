@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import NewGroup from "./component/NewGroup";
+import Product from "./component/Product";
 import SelectGroup from "./component/SelectGroup";
 
 function App() {
@@ -10,6 +11,11 @@ function App() {
     { groupName: "Computer", id: 2 },
   ]);
   const [selectGroup, setSelectGroup] = useState("");
+  const [product, setProduct] = useState([
+    { productName: "test", id: 10, groupName: "Mobile" },
+  ]);
+  const [selectProduct, setSelectProduct] = useState("");
+
   // useEffect(() => {}, allGroups);
   const changeNewGroupHandler = (e) => {
     setNewGroup({
@@ -23,6 +29,18 @@ function App() {
     setNewGroup("");
   };
 
+  const submitNewProductHandler = (e) => {
+    e.preventDefault();
+    setProduct([
+      ...product,
+      {
+        productName: selectProduct,
+        id: Math.floor(Math.random() * 1000),
+        groupName: selectGroup,
+      },
+    ]);
+    setSelectProduct("");
+  };
   return (
     <div className="App">
       <header>
@@ -32,7 +50,19 @@ function App() {
         submitNewGroup={submitNewGroupHandler}
         changeNewGroup={changeNewGroupHandler}
       />
-      <SelectGroup allGroups={allGroups} setSelectGroup={setSelectGroup} />
+      <SelectGroup
+        allGroups={allGroups}
+        setSelectGroup={setSelectGroup}
+        SubmitNewProduct={submitNewProductHandler}
+        setSelectProduct={setSelectProduct}
+        selectGroup={selectGroup}
+        selectProduct={selectProduct}
+      />
+      <Product
+        product={product}
+        selectGroup={selectGroup}
+        // setProduct={setProduct}
+      />
     </div>
   );
 }

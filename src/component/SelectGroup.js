@@ -1,22 +1,40 @@
-const SelectGroup = ({ allGroups, setSelectGroup }) => {
+import React from "react";
+
+const SelectGroup = ({
+  allGroups,
+  setSelectGroup,
+  SubmitNewProduct,
+  setSelectProduct,
+  selectProduct,
+}) => {
   const selectGroupHandler = (e) => {
     setSelectGroup(e.target.value);
-    console.log(e.target.value);
   };
+
+  const selectProductHandler = (e) => {
+    setSelectProduct(e.target.value);
+  };
+
   return (
     <>
       <div>
         <select onChange={selectGroupHandler}>
           {allGroups.map((group) => (
-            <option key={group.id} value={group.groupName}>
-              {group.groupName}
-            </option>
+            <option key={group.groupName}>{group.groupName}</option>
           ))}
         </select>
       </div>
       <div>
-        <input type="text" placeholder="New Product" />
-        <button type="submit">Add</button>
+        <input
+          type="text"
+          placeholder="New Product"
+          value={selectProduct}
+          onChange={selectProductHandler}
+          id="selectProduct"
+        />
+        <button type="submit" onClick={SubmitNewProduct}>
+          Add
+        </button>
       </div>
     </>
   );
