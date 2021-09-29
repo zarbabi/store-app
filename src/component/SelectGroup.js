@@ -16,9 +16,10 @@ const SelectGroup = ({
   };
 
   return (
-    <>
-      <div>
+    <div  className="formControl" >
+      <div >
         <select onChange={selectGroupHandler}>
+          <option value="Default">Select</option>
           {allGroups.map((group) => (
             <option key={group.groupName}>{group.groupName}</option>
           ))}
@@ -36,7 +37,7 @@ const SelectGroup = ({
           Add
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

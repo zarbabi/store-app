@@ -3,10 +3,10 @@ const NewGroup = ({ changeNewGroup, submitNewGroup }) => {
 
 
   return (
-    <form>
+    <form >
       <input type="text" placeholder="New Group" onChange={changeNewGroup} />
       <button type="submit" onClick={submitNewGroup}>
-        Add
+        +
       </button>
     </form>
   );

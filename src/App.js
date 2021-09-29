@@ -25,12 +25,25 @@ function App() {
   };
   const submitNewGroupHandler = (e) => {
     e.preventDefault();
+    // if (!selectGroup) {
+    //   alert("Please Enter Group!");
+    //   return;
+    // }
     setAllGroups([...allGroups, newGroup]);
     setNewGroup("");
   };
 
   const submitNewProductHandler = (e) => {
     e.preventDefault();
+    if (!selectGroup) {
+      alert("Please Select Group!");
+      return;
+    }
+
+    if (!selectProduct) {
+      alert("Please Enter Product");
+      return;
+    }
     setProduct([
       ...product,
       {
@@ -46,23 +59,29 @@ function App() {
       <header>
         <p>Store</p>
       </header>
-      <NewGroup
-        submitNewGroup={submitNewGroupHandler}
-        changeNewGroup={changeNewGroupHandler}
-      />
-      <SelectGroup
-        allGroups={allGroups}
-        setSelectGroup={setSelectGroup}
-        SubmitNewProduct={submitNewProductHandler}
-        setSelectProduct={setSelectProduct}
-        selectGroup={selectGroup}
-        selectProduct={selectProduct}
-      />
-      <Product
-        product={product}
-        selectGroup={selectGroup}
-        // setProduct={setProduct}
-      />
+      <div className="container">
+        <div className="boxGroup">
+          <NewGroup
+            submitNewGroup={submitNewGroupHandler}
+            changeNewGroup={changeNewGroupHandler}
+          />
+         
+          <SelectGroup
+            allGroups={allGroups}
+            setSelectGroup={setSelectGroup}
+            SubmitNewProduct={submitNewProductHandler}
+            setSelectProduct={setSelectProduct}
+            selectGroup={selectGroup}
+            selectProduct={selectProduct}
+          />
+        </div>
+
+        <Product
+          product={product}
+          selectGroup={selectGroup}
+          // setProduct={setProduct}
+        />
+      </div>
     </div>
   );
 }

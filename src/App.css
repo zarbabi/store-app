@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+ 
 }
 
 .App-header {
@@ -11,4 +14,71 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+
+.formControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.boxProduct {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 100px;
+  align-items: flex-start;
+  padding: 5px 10px;
+  justify-content: space-between;
+}
+.boxGroup {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 100px;
+  align-items: flex-start;
+  padding: 5px 10px;
+  justify-content: space-between;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1100px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 150px;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  outline: none;
+  border-radius: 5px;
+}
+
+select {
+  border: 1px solid #ccc;
+  padding: 10px 0px;
+  outline: none;
+  border-radius: 5px;
+}
+
+button {
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #000000;
 }
